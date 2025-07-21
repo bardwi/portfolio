@@ -76,9 +76,10 @@ const Experience: React.FC = () => (
       </div>
 
       <a
-        href="/Bidangshree_Brahma_CV.pdf"
+        href="/resume_Bidangshree.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
         className="experience__resume-link"
-        download
       >
         View Full Resume
       </a>
