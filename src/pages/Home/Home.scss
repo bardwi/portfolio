@@ -1,0 +1,14 @@
+@use '../../styles/variables' as vars;
+
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  //background-color: vars.$bg-dark;
+
+  &__main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "Bidangshree",
+    "logoicon",
+    "bcjp",
+    "Ivxg",
+    "clickaway",
+    "Signant",
+    "KayaDev",
+    "Copywrite",
+    "lvxg",
+    "VITE",
+    "EMAILJS",
+    "SERVICE_ID",
+    "TEMPLATE_ID",
+    "USER_ID",
+    "njsproj",
+    "ntvs"
+  ],
+  "ignorePaths": ["node_modules/**"]
+}

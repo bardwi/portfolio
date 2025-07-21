@@ -1,0 +1,142 @@
+@use '../../styles/variables' as vars;
+
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 1000;
+  //overflow-x: hidden;
+
+  &--sticky {
+    position: fixed;
+    background: rgba(22, 22, 29, 0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.15rem 2rem;
+  }
+
+  &__logo {
+    img {
+      height: 40px;
+    }
+    padding: 5px;
+  }
+
+  &__toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
+
+  &__list {
+    display: flex;
+    gap: 3.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    position: relative;
+    padding: 0.25rem;
+    font-size: 0.8rem;
+
+    &:hover {
+      color: vars.$accent-color;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: vars.$accent-color;
+      transition: width 0.3s;
+    }
+    &:hover:after {
+      width: 100%;
+    }
+  }
+  &__item {
+    &--cta {
+      .nav__link--cta {
+        background: #ffffff;
+        color: #16161d;
+        font-weight: 600;
+        text-decoration: none;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        transition: background 0.2s, color 0.2s;
+
+        &:hover {
+          background: #ffffff;
+          color: #16161d;
+        }
+
+        &:after {
+          content: '';
+          background: none;
+        }
+      }
+    }
+  }
+
+  /* === Responsive === */
+  @media (max-width: 768px) {
+    .nav {
+      overflow-x: hidden;
+    }
+
+    &__toggle {
+      display: block; /* show hamburger menu */
+    }
+
+    &__list {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(22, 22, 29, 0.98);
+      flex-direction: column;
+      width: 100%;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      padding: 1.5rem 0;
+      box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.3);
+
+      &--open {
+        transform: translateX(0);
+      }
+
+      .nav__item--cta {
+        padding: 0 40px;
+      }
+
+      .nav__item {
+        margin: 0.75rem 0;
+        text-align: center;
+
+        .nav__link {
+          display: block;
+        }
+      }
+    }
+  }
+}

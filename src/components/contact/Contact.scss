@@ -1,0 +1,138 @@
+@use '../../styles/variables' as vars;
+@use 'sass:color';
+
+.contact {
+  background: #1f242d;
+  color: #fff;
+  padding: 6rem 2rem;
+  font-family: vars.$font-family-base;
+  &__inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  &__title {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 4rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+  }
+
+  &__accent {
+    color: vars.$accent-color;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+  }
+
+  /* —— Left Info Panel —— */
+
+  &__logo {
+    display: block;
+    margin: 0;
+    height: 48px;
+  }
+
+  &__text {
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 1.5rem;
+    padding-inline-start: 0;
+
+    .contact__social {
+      list-style: none;
+
+      a {
+        font-size: 1.5rem;
+        color: #fff;
+        transition: color 0.2s;
+
+        &:hover {
+          color: vars.$accent-color;
+        }
+      }
+    }
+  }
+
+  /* —— Right Form Panel —— */
+  &__form {
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+
+      .contact__field {
+        background: #323946;
+        border: none;
+        border-radius: 4px;
+        padding: 0.75rem 1rem;
+        color: #fff;
+        font-size: 0.8rem;
+        resize: vertical;
+        opacity: 0.8;
+
+        &::placeholder {
+          color: #fff;
+          opacity: 1;
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 2px vars.$accent-color;
+          border: 1px solid vars.$accent-color;
+        }
+      }
+
+      input[name='email'],
+      textarea {
+        grid-column: 1 / -1;
+      }
+
+      .contact__submit {
+        grid-column: 1 / -1;
+        padding: 0.75rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        font-weight: 500;
+        background: vars.$accent-color;
+        color: #fff;
+        border: none;
+        font-family: vars.$font-family-base;
+        font-weight: 600;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.2s;
+
+        &:hover {
+          background: rgba(0, 238, 255, 0.85);
+        }
+        &:disabled {
+          opacity: 0.6;
+          cursor: default;
+        }
+      }
+    }
+  }
+
+  /* —— Responsive: stack columns —— */
+  @media (max-width: 768px) {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__form form {
+      grid-template-columns: 1fr;
+    }
+  }
+}

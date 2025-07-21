@@ -1,0 +1,26 @@
+@use './variables' as vars;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: vars.$font-stack;
+  background: #fff;
+  color: vars.$primary-color;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
