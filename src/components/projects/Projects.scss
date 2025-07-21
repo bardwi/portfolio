@@ -1,0 +1,43 @@
+@use '../../styles/variables' as vars;
+@use 'sass:color';
+
+.projects {
+  padding: 6rem 2rem;
+  background: vars.$skills-bg;
+  color: #fff;
+
+  &__container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: 4rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+
+    & .projects__accent {
+      color: vars.$accent-color;
+    }
+  }
+
+  &__text {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  @media (max-width: 480px) {
+    padding: 4rem 1rem;
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__text {
+      font-size: 1rem;
+    }
+  }
+}
