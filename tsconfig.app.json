@@ -23,14 +23,14 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-   // "noUncheckedSideEffectImports": true,
+    // "noUncheckedSideEffectImports": true,
     "baseUrl": "./src",
-  "paths": {
-    "components/*": ["components/*"],
-    "pages/*": ["pages/*"],
-  }
+    "paths": {
+      "components/*": ["components/*"],
+      "pages/*": ["pages/*"],
+      "utils/*": ["utils/*"],
+      "assets/*": ["assets/*"]
+    }
   },
-  "include": ["src"],
- 
-
+  "include": ["src"]
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Hero.scss';
 import { FaLinkedin, FaEnvelope, FaGithub } from 'react-icons/fa';
-import profile from '../../assets/pix.png';
+import profile from 'assets/pix.png';
 
 const Hero: React.FC = () => (
   <section id="hero" className="hero">

@@ -16,7 +16,9 @@
     "noEmit": true,
     "paths": {
       "components/*": ["components/*"],
-      "pages/*": ["pages/*"]
+      "pages/*": ["pages/*"],
+      "utils/*": ["utils/*"],
+      "assets/*": ["assets/*"]
     },
 
     /* Linting */

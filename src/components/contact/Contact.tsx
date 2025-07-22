@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Contact.scss';
 import { FaGithub, FaEnvelope, FaLinkedin } from 'react-icons/fa';
-import logo from '../../assets/logoicon.png';
+import logo from 'assets/logoicon.png';
 import emailjs from '@emailjs/browser';
 import { Snackbar, Alert } from '@mui/material';
 import type { AlertColor } from '@mui/material';
