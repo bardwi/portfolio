@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Nav.scss';
-import logo from '../../assets/logoicon.png';
+import logo from 'assets/logoicon.png';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Nav: React.FC = () => {
