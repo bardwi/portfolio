@@ -5,6 +5,7 @@ import App from './App';
 import { reportWebVitals } from 'utils/reportWebVitals';
 import trackWebVitals from '@vercel/analytics';
 import { Analytics } from '@vercel/analytics/react';
+import './styles/_cookieconsent.scss';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

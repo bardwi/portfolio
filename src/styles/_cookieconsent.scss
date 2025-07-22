@@ -1,0 +1,16 @@
+@use './variables' as vars;
+@import 'vanilla-cookieconsent/dist/cookieconsent.css';
+
+#cc-main {
+  .cm__btn {
+    background: vars.$accent-color !important;
+    border-radius: 4px !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.85rem !important;
+    border: none;
+    color: #fff;
+  }
+  .cm {
+    max-width: 500px !important;
+  }
+}

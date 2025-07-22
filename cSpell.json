@@ -18,7 +18,11 @@
     "USER_ID",
     "njsproj",
     "ntvs",
-    "onTTFB"
+    "onTTFB",
+    "cookieconsent",
+    "traveller",
+    "impressum",
+    "bidangshreebrahma"
   ],
   "ignorePaths": ["node_modules/**"]
 }
