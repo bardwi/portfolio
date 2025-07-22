@@ -1,6 +1,6 @@
 import React from 'react';
-import Nav from '../nav/Nav';
-import Hero from '../hero/Hero';
+import Nav from 'components/nav/Nav';
+import Hero from 'components/hero/Hero';
 import './Header.scss';
 
 const Header: React.FC = () => (
