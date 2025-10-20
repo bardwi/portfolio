@@ -20,14 +20,6 @@ const pluginConfig: CookieConsentConfig = {
     console.log('onFirstAction fired');
   },
 
-  //   onConsent: function ({ cookie }) {
-  //     console.log('onConsent fired ...');
-  //   },
-
-  //   onChange: function ({ changedCategories, cookie }) {
-  //     console.log('onChange fired ...');
-  //   },
-
   categories: {
     necessary: {
       readOnly: true,
