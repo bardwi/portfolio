@@ -15,6 +15,7 @@ import {
   SiFigma,
   SiMysql,
   SiMongodb,
+  SiNextdotjs,
 } from 'react-icons/si';
 
 type Skill = {
@@ -28,6 +29,7 @@ const skills: Skill[] = [
   { icon: <FaSass color="#CC6699" />, label: 'SASS' },
   { icon: <SiJavascript color="#F7DF1E" />, label: 'JavaScript' },
   { icon: <FaReact color="#61DAFB" />, label: 'React' },
+  { icon: <SiNextdotjs color="#000000" />, label: 'Next.js' },
   { icon: <SiBootstrap color="#7952B3" />, label: 'Bootstrap' },
   { icon: <SiTypescript color="#3178C6" />, label: 'TypeScript' },
   { icon: <SiFigma color="#F24E1E" />, label: 'Figma' },
@@ -45,7 +47,7 @@ const Skills: React.FC = () => (
       </h2>
       <div className="skills__grid">
         {skills.map(({ icon, label }) => (
-          <div className="skill__item" key={label}>
+          <div className="skills__item" key={label}>
             <div className="skills__icon">{icon}</div>
             <p className="skills__label">{label}</p>
           </div>
