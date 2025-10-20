@@ -1,0 +1,30 @@
+@use '../../styles/variables' as vars;
+
+.imprint {
+  padding: 4rem 2rem;
+  background: #fff;
+  color: #333;
+  font-family: vars.$font-family-base;
+
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-family: vars.$font-family-heading;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: vars.$accent-color;
+  }
+
+  &__text {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+
+    a {
+      color: vars.$accent-color;
+      text-decoration: underline;
+    }
+  }
+}
