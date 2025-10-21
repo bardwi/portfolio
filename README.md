@@ -3,18 +3,17 @@
 Modern, fast personal portfolio built with **React + TypeScript + Vite (SWC)** and deployed on **Vercel**.  
 Showcases selected projects, skills, and contact info with responsive, accessible UI.
 
-> 🔗 Live: <https://your-domain.com>  
+> 🔗 Live: <https://www.bidangshreebrahma.de/>  
 > 🧪 Preview Deploys: generated automatically for every PR
 
 ---
 
 ## Tech Stack
 
-- **React 18** + **TypeScript**
-- **Vite 5** (React SWC plugin)
-- **SCSS / CSS Modules** (or Tailwind — update if different)
+- **React 19** + **TypeScript**
+- **Vite 6** (React SWC plugin)
+- **SCSS / CSS Modules** 
 - **ESLint** + **Prettier**
-- Optional: **React Router**, **Framer Motion**, **Vitest** (add/remove as applicable)
 
 ---
 
