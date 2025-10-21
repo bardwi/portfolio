@@ -7,9 +7,24 @@ interface Job {
   period: string;
   location: string;
   bullets: string[];
+  url?: string;
 }
 
 const jobs: Job[] = [
+  {
+    role: 'Frontend Developer (Freelance)',
+    company: 'Ingala Earth',
+    period: 'Jul 2025 – Oct 2025',
+    location: 'Remote',
+    url: 'https://www.ingala.earth',
+    bullets: [
+      'Built and deployed the public-facing site for a regenerative design and permaculture consultancy using React, TypeScript, Next.js, and SCSS Modules.',
+      'Designed the site’s layout, visual flow in Figma, then implemented them as responsive and accessible UI components.',
+      'Improved performance with lazy-loaded images and static site generation using Next.js.',
+      'Ensured strong accessibility and semantic HTML, aligning with SEO-friendly best practices.',
+      'Collaborated directly with the founder on content, layout, and overall design strategy',
+    ],
+  },
   {
     role: 'Frontend Developer',
     company: 'TIME for Kids',
@@ -70,6 +85,16 @@ const Experience: React.FC = () => (
                   </li>
                 ))}
               </ul>
+              {job.url && (
+                <a
+                  href={job.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="experience__project-link"
+                >
+                  Visit Project
+                </a>
+              )}
             </div>
           </div>
         ))}

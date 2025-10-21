@@ -106,6 +106,19 @@
       border-color: vars.$accent-color;
     }
   }
+  &__project-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: vars.$accent-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+      color: color.scale(vars.$accent-color, $lightness: 10%);
+    }
+  }
 
   /* Mobile adjustments */
   @media (max-width: 768px) {
