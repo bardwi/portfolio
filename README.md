@@ -3,7 +3,7 @@
 Modern, fast personal portfolio built with **React + TypeScript + Vite (SWC)** and deployed on **Vercel**.  
 Showcases selected projects, skills, and contact info with responsive, accessible UI.
 
-> 🔗 Live: <https://www.bidangshreebrahma.de/>  
+> 🔗 Live: <https://your-domain.com>  
 > 🧪 Preview Deploys: generated automatically for every PR
 
 ---
@@ -35,4 +35,3 @@ npm run dev   # http://localhost:5173
 # 3) Production build + local preview
 npm run build
 npm run preview
-```
