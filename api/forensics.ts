@@ -36,8 +36,6 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     allHeaders: h,
   };
 
-  console.log('FORENSICS_LOG', JSON.stringify(payload));
-
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
