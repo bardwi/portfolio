@@ -10,7 +10,7 @@ const PrivacyPolicy: React.FC = () => (
       <p>
         We collect only minimal personal data (e.g. contact form inputs) and
         analytics cookies. <br />
-        For security and abuse prevention, this form records your IP address,
+        For security and abuse prevention, contact form records your IP address,
         browser information, and submission time. The data is stored securely
         and not shared with third parties.
       </p>
