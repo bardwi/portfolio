@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Contact.scss';
 import { FaGithub, FaEnvelope, FaLinkedin } from 'react-icons/fa';
 import logo from 'assets/logoicon.png';
@@ -11,6 +11,19 @@ const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID!;
 const USER_ID = import.meta.env.VITE_EMAILJS_USER_ID!;
 
 emailjs.init(USER_ID);
+
+interface ForensicsPayload {
+  timestamp: string;
+  ip: string;
+  forwardedFor?: string;
+  cfConnectingIp?: string;
+  xRealIp?: string;
+  userAgent?: string;
+  referer?: string;
+  host?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  allHeaders?: Record<string, unknown>;
+}
 
 const Contact: React.FC = () => {
   const [form, setForm] = useState({
@@ -28,6 +41,50 @@ const Contact: React.FC = () => {
   const [snackbarSeverity, setSnackbarSeverity] =
     useState<AlertColor>('success');
 
+  // ----client/browser context & server forensics
+  const [clientIp, setClientIp] = useState('');
+  const [userAgent, setUserAgent] = useState('');
+  const [referrer, setReferrer] = useState('');
+  const [tz, setTz] = useState('');
+  const [serverData, setServerData] = useState<ForensicsPayload | null>(null);
+
+  useEffect(() => {
+    setUserAgent(navigator.userAgent || '');
+    setReferrer(document.referrer || '');
+    try {
+      setTz(Intl.DateTimeFormat().resolvedOptions().timeZone || '');
+    } catch {
+      setTz('');
+    }
+
+    //  client public IP
+    fetch('https://api.ipify.org?format=json', { cache: 'no-store' })
+      .then((r) => r.json())
+      .then((d) => setClientIp(d?.ip ?? ''))
+      .catch(() => {});
+  }, []);
+
+  async function fetchServerForensics(): Promise<ForensicsPayload | null> {
+    try {
+      const res = await fetch('/api/forensics', {
+        method: 'GET',
+        cache: 'no-store',
+      });
+      if (!res.ok) return null;
+      const data = (await res.json()) as ForensicsPayload;
+      setServerData(data);
+      return data;
+    } catch {
+      return null;
+    }
+  }
+
+  useEffect(() => {
+    if (serverData) {
+      console.log('Server forensic data:', serverData);
+    }
+  }, [serverData]);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -35,9 +92,11 @@ const Contact: React.FC = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
+
+    const sv = await fetchServerForensics();
 
     const templateParams = {
       name: `${form.firstName} ${form.lastName}`,
@@ -45,30 +104,41 @@ const Contact: React.FC = () => {
       email: form.email,
       phone: form.phone,
       message: form.message,
+
+      // client/browser
+      client_ip: clientIp,
+      user_agent: userAgent,
+      referrer: referrer,
+      timezone: tz,
+      submitted_at: new Date().toISOString(),
+
+      server_ip: sv?.ip ?? '',
+      server_forwarded_for: sv?.forwardedFor ?? '',
+      server_user_agent: sv?.userAgent ?? '',
+      server_referer: sv?.referer ?? '',
+      server_host: sv?.host ?? '',
     };
 
     emailjs
       .send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_ID)
-      .then(
-        () => {
-          setSnackbarMsg('Thanks! Your message has been sent.');
-          setSnackbarSeverity('success');
-          setForm({
-            firstName: '',
-            lastName: '',
-            phone: '',
-            subject: '',
-            email: '',
-            message: '',
-          });
-        },
-        (err) => {
-          console.error('EmailJS error:', err);
-          setSnackbarMsg('Oops! Something went wrong. Please try again later.');
-          setSnackbarSeverity('error');
-          setSnackbarOpen(true);
-        }
-      )
+      .then(() => {
+        setSnackbarMsg('Thanks! Your message has been sent.');
+        setSnackbarSeverity('success');
+        setForm({
+          firstName: '',
+          lastName: '',
+          phone: '',
+          subject: '',
+          email: '',
+          message: '',
+        });
+      })
+      .catch((err) => {
+        console.error('EmailJS error:', err);
+        setSnackbarMsg('Oops! Something went wrong. Please try again later.');
+        setSnackbarSeverity('error');
+        setSnackbarOpen(true);
+      })
       .finally(() => {
         setSnackbarOpen(true);
         setSending(false);
@@ -111,7 +181,6 @@ const Contact: React.FC = () => {
                   <FaLinkedin />
                 </a>
               </li>
-
               <li className="contact__social">
                 <a href="mailto:bardwi.brm@gmail.com" aria-label="Email">
                   <FaEnvelope />
@@ -195,6 +264,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </div>
+
       {/* Snackbar */}
       <Snackbar
         open={snackbarOpen}
