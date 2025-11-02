@@ -46,7 +46,6 @@ const Contact: React.FC = () => {
   const [userAgent, setUserAgent] = useState('');
   const [referrer, setReferrer] = useState('');
   const [tz, setTz] = useState('');
-  const [serverData, setServerData] = useState<ForensicsPayload | null>(null);
 
   useEffect(() => {
     setUserAgent(navigator.userAgent || '');
@@ -72,18 +71,11 @@ const Contact: React.FC = () => {
       });
       if (!res.ok) return null;
       const data = (await res.json()) as ForensicsPayload;
-      setServerData(data);
       return data;
     } catch {
       return null;
     }
   }
-
-  useEffect(() => {
-    if (serverData) {
-      console.log('Server forensic data:', serverData);
-    }
-  }, [serverData]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
