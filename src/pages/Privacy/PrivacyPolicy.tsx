@@ -9,7 +9,10 @@ const PrivacyPolicy: React.FC = () => (
       <h2>1. Data Collection</h2>
       <p>
         We collect only minimal personal data (e.g. contact form inputs) and
-        analytics cookies.
+        analytics cookies. <br />
+        For security and abuse prevention, this form records your IP address,
+        browser information, and submission time. The data is stored securely
+        and not shared with third parties.
       </p>
 
       <h2>2. Use of Data</h2>
