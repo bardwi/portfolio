@@ -14,6 +14,8 @@ const Nav: React.FC = () => {
     setMenuOpen(false);
   }, [pathname]);
 
+  const closeMenu = () => setMenuOpen(false);
+
   useEffect(() => {
     const navEl = document.querySelector('.nav') as HTMLElement | null;
     const navHeight = navEl?.offsetHeight || 0;
@@ -39,22 +41,26 @@ const Nav: React.FC = () => {
 
         <ul className={`nav__list ${menuOpen ? 'nav__list--open' : ''}`}>
           <li className="nav__item">
-            <Link to="/#about" className="nav__link">
+            <Link to="/#about" className="nav__link" onClick={closeMenu}>
               About Me
             </Link>
           </li>
           <li className="nav__item">
-            <Link to="/#skills" className="nav__link">
+            <Link to="/#skills" className="nav__link" onClick={closeMenu}>
               Skills
             </Link>
           </li>
           <li className="nav__item">
-            <Link to="/#projects" className="nav__link">
+            <Link to="/#projects" className="nav__link" onClick={closeMenu}>
               Portfolio
             </Link>
           </li>
           <li className="nav__item nav__item--cta">
-            <Link to="/#contact" className="nav__link nav__link--cta">
+            <Link
+              to="/#contact"
+              className="nav__link nav__link--cta"
+              onClick={closeMenu}
+            >
               Contact Me
             </Link>
           </li>
