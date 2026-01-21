@@ -20,7 +20,7 @@ const projects: Project[] = [
     title: 'Ingala Earth Website',
     client: 'Ingala Earth (Freelance)',
     period: 'Jul 2025 – Oct 2025',
-    url: 'https://www.ingala.earth',
+    url: 'https://ingala.earth',
     bullets: [
       'Built the public-facing website using Next.js, React, TypeScript, and SCSS Modules.',
       'Translated Figma layouts into reusable and accessible UI components.',
