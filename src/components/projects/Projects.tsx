@@ -15,7 +15,7 @@ const projects: Project[] = [
     description:
       'Ingala Earth is a regenerative design and permaculture consultancy rooted in ecological harmony, cultural wisdom, and systems thinking. We work across borders to design living systems that restore land, empower communities, and cultivate resilient futures.',
     image: ingala,
-    url: 'https://www.ingala.earth',
+    url: 'https://ingala.earth',
   },
 ];
 
