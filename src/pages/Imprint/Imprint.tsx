@@ -8,9 +8,9 @@ const Imprint: React.FC = () => (
       <p className="imprint__text">
         Bidangshree Brahma
         <br />
-        Defreggerstr
+        Friedrichshain
         <br />
-        12435 Berlin, Germany
+        Berlin, Germany
         <br />
         <br />
         Email: <a href="mailto:you@domain.com">bardwi.brm(at)gmail.com</a>

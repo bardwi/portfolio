@@ -170,12 +170,12 @@ const ExperienceSection: React.FC = () => (
           ))}
         </div>
 
-        <ExternalLink
+        {/* <ExternalLink
           href="/Bidangshree_CV_EN.pdf"
           className="experience__resume-link"
         >
           View Full Resume
-        </ExternalLink>
+        </ExternalLink> */}
       </div>
     </section>
   </>
