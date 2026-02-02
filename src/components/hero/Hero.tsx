@@ -47,12 +47,12 @@ const Hero: React.FC = () => (
 
       <div className="hero__buttons">
         <a
-          href="/resume_Bidangshree.pdf"
-          target="_blank"
+          href="#contact"
+          //target="_blank"
           rel="noopener noreferrer"
           className="hero__button hero__button--solid"
         >
-          Download CV
+          Contact Me
         </a>
         <a href="#projects" className="hero__button hero__button--outline">
           Portfolio
