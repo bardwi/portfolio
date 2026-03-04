@@ -4,14 +4,14 @@ import './Experience.scss';
 interface Experience {
   role: string;
   company: string;
-  period: string;
+  period?: string;
   location: string;
   bullets: string[];
 }
 interface Project {
   title: string;
   client?: string;
-  period: string;
+  period?: string;
   url?: string;
   bullets: string[];
 }
@@ -19,7 +19,7 @@ const projects: Project[] = [
   {
     title: 'Ingala Earth Website',
     client: 'Ingala Earth (Freelance)',
-    period: 'Jul 2025 – Oct 2025',
+    // period: 'Jul 2025 – Oct 2025',
     url: 'https://ingala.earth',
     bullets: [
       'Built the public-facing website using Next.js, React, TypeScript, and SCSS Modules.',
@@ -34,7 +34,7 @@ const experiences: Experience[] = [
   {
     role: 'Frontend Developer',
     company: 'TIME for Kids',
-    period: 'Jan 2023 – Dec 2024',
+    // period: 'Jan 2023 – Dec 2024',
     location: 'Berlin, Germany',
     bullets: [
       'Built and maintained UI components for several frontend projects.',
@@ -45,7 +45,7 @@ const experiences: Experience[] = [
   {
     role: 'Associate Consultant',
     company: 'Capgemini',
-    period: 'Aug 2021 – May 2022',
+    // period: 'Aug 2021 – May 2022',
     location: 'Bangalore, India',
     bullets: [
       'Developed clinical software modules for Signant Health project.',
@@ -56,7 +56,7 @@ const experiences: Experience[] = [
   {
     role: 'Associate Developer',
     company: 'KayaDev AI',
-    period: 'Aug 2019 – Jun 2021',
+    // period: 'Aug 2019 – Jun 2021',
     location: 'Bangalore, India',
     bullets: [
       'Developed and maintained responsive web applications.',
@@ -88,8 +88,10 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
         {project.client && (
           <span className="projects__client">{project.client}</span>
         )}
-        {project.client && ' · '}
-        <span className="projects__period">{project.period}</span>
+        {project.client && project.period && ' · '}
+        {project.period && (
+          <span className="projects__period">{project.period}</span>
+        )}
       </p>
     </header>
 
@@ -112,7 +114,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
 const ExperienceItem: React.FC<{ job: Experience }> = ({ job }) => (
   <article className="experience__job">
     <div className="experience__timeline" aria-label="timeline">
-      <p className="experience__period">{job.period}</p>
+      {job.period && <p className="experience__period">{job.period}</p>}
       <p className="experience__location">{job.location}</p>
     </div>
 
@@ -166,7 +168,7 @@ const ExperienceSection: React.FC = () => (
 
         <div className="experience__jobs">
           {experiences.map((job) => (
-            <ExperienceItem key={`${job.company}-${job.period}`} job={job} />
+            <ExperienceItem key={`${job.company}-${job.role}`} job={job} />
           ))}
         </div>
 
