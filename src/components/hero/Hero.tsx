@@ -1,6 +1,6 @@
 import React from 'react';
 import './Hero.scss';
-import { FaLinkedin, FaEnvelope, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import profile from 'assets/pix.png';
 
 const Hero: React.FC = () => (
@@ -32,7 +32,7 @@ const Hero: React.FC = () => (
             <FaEnvelope />
           </a>
         </li>
-        <li className="hero__social-item">
+        {/* <li className="hero__social-item">
           <a
             href="https://github.com/bardwi"
             target="_blank"
@@ -42,7 +42,7 @@ const Hero: React.FC = () => (
           >
             <FaGithub />
           </a>
-        </li>
+        </li> */}
       </ul>
 
       <div className="hero__buttons">

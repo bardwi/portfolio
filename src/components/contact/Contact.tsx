@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Contact.scss';
-import { FaGithub, FaEnvelope, FaLinkedin } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
 import logo from 'assets/logoicon.png';
 import emailjs from '@emailjs/browser';
 import { Snackbar, Alert } from '@mui/material';
@@ -178,7 +178,7 @@ const Contact: React.FC = () => {
                   <FaEnvelope />
                 </a>
               </li>
-              <li className="contact__social">
+              {/* <li className="contact__social">
                 <a
                   href="https://github.com/bardwi"
                   target="_blank"
@@ -187,7 +187,7 @@ const Contact: React.FC = () => {
                 >
                   <FaGithub />
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
